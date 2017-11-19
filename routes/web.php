@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -23,5 +24,13 @@ Route::group(['prefix'=>'articles'], function(){
 	Route::get('view/{id}',[
 		'uses' => 'TestController@view',
 		'as'   => 'articlesView'
+	]);
+});
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+	Route::resource('users','UsersController');
+	Route::get('users/{id}/destroy', [
+		'uses' => 'UsersController@destroy',
+		'as'   => 'users.destroy'
 	]);
 });
