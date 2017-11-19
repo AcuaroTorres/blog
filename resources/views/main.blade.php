@@ -6,12 +6,12 @@
 	<link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
 </head>
 <body>
-	<div class="container">
+	
 	@include('partials/nav')
-	<section>
+	
+<div class="container">
 	@include('flash::message')
 	@yield('content')
-	</section>
 	</div>
 <footer>
 	
