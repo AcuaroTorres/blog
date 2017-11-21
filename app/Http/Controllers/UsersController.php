@@ -17,7 +17,7 @@ class UsersController extends Controller
     {
         $users = User::orderBy('name','Asc')->paginate(10);
         //$users = User::All();
-        return view('admin/users/index')->with('users',$users);
+        return view('admin/users/index',['users'=>$users,'ActiveMenu'=>'admin.users.index']);
     }
 
     /**
@@ -28,7 +28,7 @@ class UsersController extends Controller
     public function create()
     {
         //
-        return view('admin/users/create');
+        return view('admin/users/create',['ActiveMenu'=>'admin.users.create']);
     }
 
     /**
@@ -44,7 +44,8 @@ class UsersController extends Controller
         $user->password = bcrypt($request->password);
        	$user->save();
         
-        Flash::success("se ha registrado ". $user->name ." de forma exitosa");
+        $flash='danger';
+        //$flash['message']="se ha registrado ". $user->name ." de forma exitosa";
         return redirect()->route('admin.users.index');
 
         //dd($user);
@@ -70,7 +71,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.users.edit')->with('user', $user);
+        return view('admin.users.edit',['user'=>$user,'ActiveMenu'=>'admin.users.create']);
     }
 
 
@@ -89,8 +90,9 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->save();
 
-        Flash::warning('El usuario ha sido editado');
-        return redirect()->route('admin.users.index');
+        // return redirect()->route('admin.users.index')->with('success','El usuario ha sido editado');
+        $flash = ['success'=>'el usuario ha sido eliminado'];
+        return redirect()->route('admin.users.index')->with('info',$flash);
     }
 
     /**

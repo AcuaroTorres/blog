@@ -3,6 +3,7 @@
 @section('title','Crear Usuario')
 
 @section('content')
+
 	<form method="post" action="{{ route('admin.users.store') }}">
 		{{ csrf_field() }}
 		<div class="form-group">
