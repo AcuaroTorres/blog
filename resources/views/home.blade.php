@@ -13,7 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    @if(Auth::user()->hasRole('usuario'))
+                    <div>acceso como usuario</div>
+                    @endif
                     You are logged in!
                 </div>
             </div>
