@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//use Illuminate\Foundation\Auth\User as Authenticatable;
+//use App;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+	//if (auth()->user()->hasRole('RRHH_Admir')) 
+	return view('home');
+	//else return view('welcome');
     }
 }

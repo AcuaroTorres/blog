@@ -13,9 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @if(Auth::user()->hasRole('usuario'))
-                    <div>acceso como usuario</div>
-                    @endif
+
+                    @if (!Auth::user()->hasRole('RRHH_Admin'))
+                    <div>acceso como usuario RRHH_Admin</div>
+		    @endif
+
                     You are logged in!
                 </div>
             </div>
