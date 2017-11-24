@@ -28,6 +28,7 @@
     	<button type="button" class="close" data-dismiss="alert">×</button>	
         {{ session('info') }}
     </div>
+    
 @endif
 
 

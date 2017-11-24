@@ -1,6 +1,5 @@
 # blog
-Excelent
-git fetch --all
-git reset --hard origin/master
-git config credential.helper store
-php ../composer.phar dump-autoload //fix seeders
+git fetch --all<br>
+git reset --hard origin/master<br>
+git config credential.helper store<br>
+php ../composer.phar dump-autoload //fix seeders<br>
