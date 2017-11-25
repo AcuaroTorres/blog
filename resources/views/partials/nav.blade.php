@@ -21,6 +21,20 @@
         <li class="@if(@$ActiveMenu=='admin.users.create')active @endif">
           <a href="{{ route('admin.users.create') }}">Crear Usuario</a></li>
 
+        <li class="dropdown @if(@$ActiveMenu=='admin.categories.index' OR @$ActiveMenu=='admin.categories.create')active @endif">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorias <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+            <li class="@if(@$ActiveMenu=='admin.categories.index')active @endif">
+              <a href="{{ route('admin.categories.index') }}">Listar Categorias</a></li>
+
+            <li class="@if(@$ActiveMenu=='admin.categories.create')active @endif">
+              <a href="{{ route('admin.categories.create') }}">Crear Categoria</a></li>
+
+          </ul>
+        </li>
+
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">

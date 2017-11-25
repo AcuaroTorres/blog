@@ -4,7 +4,7 @@
 
 @section('content')
 
-	<form method="post" action="{{ route('admin.users.store') }}">
+	<form method="POST" action="{{ route('admin.users.store') }}">
 		{{ csrf_field() }}
 		<div class="form-group">
 			<label for="name">Nombre</label>

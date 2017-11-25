@@ -10,11 +10,15 @@
 	@include('partials/nav')
 	
 <div class="container">
+	@include('partials/errors')
 	@include('flash::message')
 	@yield('content')
-	</div>
+</div>
+
 <footer>
 	
+	
+
 </footer>
 <script src="{{asset('plugins/jquery/jquery-3.2.1.min.js')}}"></script>
 <script src="{{asset('plugins/bootstrap/js/bootstrap.min.js')}}"></script>

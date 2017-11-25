@@ -3,6 +3,7 @@
 @section('title','Editar Usuario' . $user->name)
 
 @section('content')
+
 	<form method="POST" action="{{ route('admin.users.update',$user->id) }}">
 		{{ csrf_field() }}
 		<input name="_method" type="hidden" value="PUT">
