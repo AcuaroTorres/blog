@@ -11,20 +11,36 @@ class TagTableSeeder extends Seeder
      */
     public function run()
     {
-        $tag1 = new App\Tag();
-        $tag1->name = 'Kawasaky';
-        $tag1->save();
+        $tag = new App\Tag();
+        $tag->name = 'Kawasaky';
+        $tag->save();
 
-        $tag2 = new App\Tag();
-        $tag2->name = 'Honda';
-        $tag2->save();
+        $tag = new App\Tag();
+        $tag->name = 'Honda';
+        $tag->save();
 
-        $tag3 = new App\Tag();
-        $tag3->name = 'BMW';
-        $tag3->save();
+        $tag = new App\Tag();
+        $tag->name = 'BMW';
+        $tag->save();
 
-        $tag4 = new App\Tag();
-        $tag4->name = 'Yamaha';
-        $tag4->save();
+        $tag = new App\Tag();
+        $tag->name = 'Yamaha';
+        $tag->save();
+
+        $tag = new App\Tag();
+        $tag->name = 'Toyota';
+        $tag->save();
+
+        $tag = new App\Tag();
+        $tag->name = 'Mitsubishi';
+        $tag->save();
+
+        $tag = new App\Tag();
+        $tag->name = 'Hiundai';
+        $tag->save();
+
+        $tag = new App\Tag();
+        $tag->name = 'Audi';
+        $tag->save();
     }
 }

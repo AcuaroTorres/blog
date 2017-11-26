@@ -11,29 +11,31 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $user_role      = App\Role::where('name', 'usuario')->first();
-        $rrhhadmin_role = App\Role::where('name', 'RRHH_Admin')->first();
+        //$admin_role         = App\Role::where('name', 'Admin')->first();
+        //$usuario_role       = App\Role::where('name', 'Usuario')->first();
+        //$rrhh_admin_role    = App\Role::where('name', 'RRHH_Admin')->first();
 
-        $user1 = new App\User();
-        $user1->name = 'Alvaro';
-        $user1->email = 'a@b.c';
-        $user1->password = bcrypt('pluto');
-        $user1->save();
-        $user1->roles()->attach($user_role);
-        $user1->roles()->attach($rrhhadmin_role);
+        $user = new App\User();
+        $user->name = 'Alvaro';
+        $user->email = 'a@b.c';
+        $user->password = bcrypt('pluto');
+        $user->save();
+        $user->roles()->attach(App\Role::where('name', 'Admin')->first());
+        $user->roles()->attach(App\Role::where('name', 'Usuario')->first());
 
-        $user2 = new App\User();
-        $user2->name = 'Aaron';
-        $user2->email = 'aaron@b.c';
-        $user2->password = bcrypt('pluto');
-        $user2->save();
-        $user2->roles()->attach($user_role);
+        $user = new App\User();
+        $user->name = 'Aaron';
+        $user->email = 'aaron@b.c';
+        $user->password = bcrypt('pluto');
+        $user->save();
+        $user->roles()->attach(App\Role::where('name', 'Usuario')->first());
+        $user->roles()->attach(App\Role::where('name', 'RRHH_Admin')->first());
 
-        $user3 = new App\User();
-        $user3->name = 'Nicole';
-        $user3->email = 'kidman@b.c';
-        $user3->password = bcrypt('pluto');
-        $user3->save();
-        $user3->roles()->attach($user_role);
+        $user = new App\User();
+        $user->name = 'Nicole';
+        $user->email = 'kidman@b.c';
+        $user->password = bcrypt('pluto');
+        $user->save();
+        $user->roles()->attach(App\Role::where('name', 'Usuario')->first());
     }
 }

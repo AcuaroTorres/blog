@@ -11,32 +11,32 @@ class ArticleTableSeeder extends Seeder
      */
     public function run()
     {
-	    $article1 = new App\Article();
-	    $article1->title = 'Primera noticia';
-	    $article1->content ='Kawasaky versys 300x';
-	    $article1->user()->associate(App\User::find(1));
-	    $article1->category()->associate(App\Category::find(1));
-	    $article1->save();
+	    $article = new App\Article();
+	    $article->title = 'Primera noticia';
+	    $article->content ='Kawasaky versys 300x';
+	    $article->user()->associate(App\User::find(1));
+	    $article->category()->associate(App\Category::find(1));
+	    $article->save();
 
-	    $article2 = new App\Article();
-	    $article2->title = 'Honda XRE300';
-	    $article2->content ='El modelo de carabineros Honda XRE 300';
-	    $article2->user()->associate(App\User::find(3));
-	    $article2->category()->associate(App\Category::find(1));
-	    $article2->save();
+	    $article = new App\Article();
+	    $article->title = 'Honda XRE300';
+	    $article->content ='El modelo de carabineros Honda XRE 300';
+	    $article->user()->associate(App\User::find(3));
+	    $article->category()->associate(App\Category::find(1));
+	    $article->save();
 
-	    $article3 = new App\Article();
-	    $article3->title = 'BMW Lanza G310GS';
-	    $article3->content ='La nueva mini trail estará disponible para finales del 2018';
-	    $article3->user()->associate(App\User::find(1));
-	    $article3->category()->associate(App\Category::find(1));
-	    $article3->save();
+	    $article = new App\Article();
+	    $article->title = 'BMW Lanza G310GS';
+	    $article->content ='La nueva mini trail estará disponible para finales del 2018';
+	    $article->user()->associate(App\User::find(1));
+	    $article->category()->associate(App\Category::find(1));
+	    $article->save();
 
-	    $article4 = new App\Article();
-	    $article4->title = 'Renault Captur';
-	    $article4->content ='Un excelente vehiculo para toda la familia';
-	    $article4->user()->associate(App\User::find(1));
-	    $article4->category()->associate(App\Category::find(2));
-	    $article4->save();
+	    $article = new App\Article();
+	    $article->title = 'Renault Captur';
+	    $article->content ='Un excelente vehiculo para toda la familia';
+	    $article->user()->associate(App\User::find(1));
+	    $article->category()->associate(App\Category::find(2));
+	    $article->save();
     }
 }
