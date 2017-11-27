@@ -16,6 +16,7 @@ class UserTableSeeder extends Seeder
         //$rrhh_admin_role    = App\Role::where('name', 'RRHH_Admin')->first();
 
         $user = new App\User();
+        $user->id = 15287582;
         $user->name = 'Alvaro';
         $user->email = 'a@b.c';
         $user->password = bcrypt('pluto');
@@ -24,6 +25,7 @@ class UserTableSeeder extends Seeder
         $user->roles()->attach(App\Role::where('name', 'Usuario')->first());
 
         $user = new App\User();
+        $user->id = 21097570;
         $user->name = 'Aaron';
         $user->email = 'aaron@b.c';
         $user->password = bcrypt('pluto');
@@ -32,6 +34,7 @@ class UserTableSeeder extends Seeder
         $user->roles()->attach(App\Role::where('name', 'RRHH_Admin')->first());
 
         $user = new App\User();
+        $user->id = 16000123;
         $user->name = 'Nicole';
         $user->email = 'kidman@b.c';
         $user->password = bcrypt('pluto');

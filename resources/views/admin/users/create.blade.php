@@ -7,6 +7,10 @@
 	<form method="POST" action="{{ route('admin.users.store') }}">
 		{{ csrf_field() }}
 		<div class="form-group">
+			<label for="name">ID</label>
+			<input type="text" class="form-control" name="id">
+		</div>
+		<div class="form-group">
 			<label for="name">Nombre</label>
 			<input type="text" class="form-control" name="name">
 		</div>
