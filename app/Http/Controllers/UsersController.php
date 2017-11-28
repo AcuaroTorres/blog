@@ -45,7 +45,7 @@ class UsersController extends Controller
         $user->password = bcrypt($request->password);
        	$user->save();
         
-        $flash='danger';
+        //$flash='danger';
         //$flash['message']="se ha registrado ". $user->name ." de forma exitosa";
         return redirect()->route('admin.users.index');
 
@@ -72,7 +72,9 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.users.edit',['user'=>$user,'ActiveMenu'=>'admin.users.create']);
+        return view('admin.users.edit')
+            ->with('user',$user)
+            ->with('ActiveMenu','admin.users.create');
     }
 
 
@@ -91,8 +93,9 @@ class UsersController extends Controller
         $user->save();
 
         // return redirect()->route('admin.users.index')->with('success','El usuario ha sido editado');
-        $flash = ['success'=>'el usuario ha sido eliminado'];
-        return redirect()->route('admin.users.index')->with('info',$flash);
+        //$flash = ['success'=>'el usuario ha sido eliminado'];
+        Flash::info('El usuario '.$user->name.' ha sido actualizado')->important();
+        return redirect()->route('admin.users.index');
     }
 
     /**
