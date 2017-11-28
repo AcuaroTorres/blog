@@ -17,8 +17,10 @@ class TagsController extends Controller
     public function index(Request $request)
     {
         //Tag::Search();
-        //$tags = Tag::Search($request->name)->orderBy('name','Asc')->paginate(5);
-        $tags = Tag::orderBy('name','Asc')->paginate(5);
+        //dd($request->get('name'));
+        $tags = Tag::Search($request->get('name'))->orderBy('name','Asc')->paginate(5);
+
+        //$tags = Tag::orderBy('name','Asc')->paginate(5);
         return view('admin.tags.index',['tags'=>$tags,'ActiveMenu'=>'admin.tags.index']);
     }
 
