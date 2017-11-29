@@ -5,8 +5,7 @@
 @section('content')
 
 	<form method="POST" action="{{ route('admin.users.update',$user->id) }}">
-		{{ csrf_field() }}
-		<input name="_method" type="hidden" value="PUT">
+		{{ method_field('PUT') }} {{ csrf_field() }}
 		<div class="form-group">
 			<label for="name">Nombre</label>
 			<input type="text" class="form-control" name="name" value="{{$user->name}}">
