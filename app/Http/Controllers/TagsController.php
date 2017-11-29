@@ -45,7 +45,7 @@ class TagsController extends Controller
         $tag = new Tag($request->all());
         $tag->save();
 
-        Flash::success('El Tag '. $tag->name. ' ha sido creado con exito');
+        session()->flash('success', 'El Tag '. $tag->name. ' ha sido creado con exito');
         return redirect()->route('admin.tags.index');
     }
 
@@ -85,7 +85,8 @@ class TagsController extends Controller
         $tag->fill($request->all());
         $tag->save();
 
-        Flash::info('El Tag '.$tag->name.' ha sido actualizado')->important();
+        session()->flash('info', 'El Tag '.$tag->name.' ha sido actualizado');
+        
         return redirect()->route('admin.tags.index');
     }
 
@@ -100,7 +101,8 @@ class TagsController extends Controller
         $tag = Tag::find($id);
         $tag->delete();
 
-        Flash::error('El Tag '.$tag->name.' ha sido eliminado')->important();
+        session()->flash('danger', 'El Tag '.$tag->name.' ha sido eliminado');
+
         return redirect()->route('admin.tags.index');
     }
 }

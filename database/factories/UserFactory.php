@@ -17,9 +17,21 @@ $factory->define(App\User::class, function (Faker $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+    	'id' 		=> $faker->ean8,
+        'name' 		=> $faker->name,
+        'email' 	=> $faker->unique()->safeEmail,
+        'password' 	=> $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });
+
+/*
+|	$user = new App\User();
+|   $user->id = 15287582;
+|   $user->name = 'Alvaro';
+|   $user->email = 'a@b.c';
+|   $user->password = bcrypt('pluto');
+|   $user->save();
+|   $user->roles()->attach(App\Role::where('name', 'Admin')->first());
+|   $user->roles()->attach(App\Role::where('name', 'Usuario')->first());
+*/

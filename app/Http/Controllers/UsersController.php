@@ -17,8 +17,10 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::orderBy('name','Asc')->paginate(10);
-        //$users = User::All();
-        return view('admin/users/index',['users'=>$users,'ActiveMenu'=>'admin.users.index']);
+
+        return view('admin/users/index')
+            ->with('users',$users)
+            ->with('ActiveMenu','admin.users.index');
     }
 
     /**
@@ -28,8 +30,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin/users/create',['ActiveMenu'=>'admin.users.create']);
+        return view('admin/users/create')
+            ->with('ActiveMenu','admin.users.create');
     }
 
     /**
@@ -44,12 +46,11 @@ class UsersController extends Controller
         $user = new User($request->All());
         $user->password = bcrypt($request->password);
        	$user->save();
-        
-        //$flash='danger';
-        //$flash['message']="se ha registrado ". $user->name ." de forma exitosa";
-        return redirect()->route('admin.users.index');
+                        
+        session()->flash('info', 'El usuario '.$user->name.' ha sido creado.');
 
-        //dd($user);
+        return redirect()->route('admin.users.index')
+            ->with('ActiveMenu','admin.users.index');
     }
 
     /**
@@ -87,15 +88,14 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd($request->all());
         $user = User::find($id);
         $user->fill($request->all());
         $user->save();
 
-        // return redirect()->route('admin.users.index')->with('success','El usuario ha sido editado');
-        //$flash = ['success'=>'el usuario ha sido eliminado'];
-        Flash::info('El usuario '.$user->name.' ha sido actualizado')->important();
-        return redirect()->route('admin.users.index');
+        session()->flash('success', 'El usuario '.$user->name.' ha sido actualizado.');
+        
+        return redirect()->route('admin.users.index')
+            ->with('ActiveMenu','admin.users.index');
     }
 
     /**
@@ -106,11 +106,12 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
         $user = User::find($id);
         $user->delete();
 
-        Flash::error('El usuario'.$user->name.' ha sido eliminado')->important();
-        return redirect()->route('admin.users.index');
+        session()->flash('success', 'El usuario '.$user->name.' ha sido eliminado');
+
+        return redirect()->route('admin.users.index')
+            ->with('ActiveMenu','admin.users.index');
     }
 }
