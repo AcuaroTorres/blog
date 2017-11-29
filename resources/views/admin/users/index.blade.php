@@ -4,8 +4,6 @@
 
 @section('content')
 
-@include('flash-message')
-
 	<table class="table table-striped">
 		<thead>
 			<th>ID</th>

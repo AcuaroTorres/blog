@@ -17,7 +17,9 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::orderBy('name','Asc')->paginate(10);
-        return view('admin.categories.index',['categories'=>$categories,'ActiveMenu'=>'admin.categories.index']);
+        return view('admin.categories.index')
+            ->with('categories', $categories)
+            ->with('ActiveMenu', 'admin.categories.index');
     }
 
     /**
@@ -27,7 +29,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create',['ActiveMenu'=>'admin.categories.create']);
+        return view('admin.categories.create')
+            ->with('ActiveMenu','admin.categories.create');
     }
 
     /**
@@ -40,8 +43,9 @@ class CategoriesController extends Controller
     {
         $category = new Category($request->all());
         $category->save();
-        session()->flash('info', 'exito info');
-        Flash::success('La categoría '. $category->name. ' ha sido creada con exito');
+
+        session()->flash('info', 'La categoria '.$category->name.' ha sido creada');
+
         return redirect()->route('admin.categories.index');
     }
 
@@ -65,7 +69,9 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.categories.edit',['category'=>$category,'ActiveMenu'=>'admin.categories.create']);
+        return view('admin.categories.edit')
+            ->with('category', $category)
+            ->with('ActiveMenu','admin.categories.create');
     }
 
     /**
@@ -81,8 +87,8 @@ class CategoriesController extends Controller
         $category->fill($request->all());
         $category->save();
 
-        Flash::info('La categoria '.$category->name.' ha sido actualizada')->important();
-$request->session()->flash('info', 'exito actializada');
+        session()->flash('success', 'La categoria '.$category->name.' ha sido actualizada');
+
         return redirect()->route('admin.categories.index');
     }
 
@@ -97,7 +103,7 @@ $request->session()->flash('info', 'exito actializada');
         $category = Category::find($id);
         $category->delete();
 
-        Flash::error('La categoria '.$category->name.' ha sido eliminada')->important();
+        session()->flash('danger', 'La categoria '.$category->name.' ha sido eliminada');
         return redirect()->route('admin.categories.index');
     }
 }

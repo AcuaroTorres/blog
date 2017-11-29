@@ -4,8 +4,6 @@
 
 @section('content')
 
-@include('flash-message')
-
 	<form method="GET" action="{{ route('admin.tags.index') }}" class="navbar_form pull-right">
 		<div class="input-group">
 			<input type="text" class="form-control" name="name" placeholder="Buscar Tag">

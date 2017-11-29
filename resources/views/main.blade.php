@@ -11,7 +11,7 @@
 	
 <div class="container">
 	@include('partials/errors')
-	@include('flash::message')
+	@include('partials/flash_message')
 	@yield('content')
 </div>
 
