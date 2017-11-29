@@ -40,7 +40,7 @@ class CategoriesController extends Controller
     {
         $category = new Category($request->all());
         $category->save();
-
+        session()->flash('info', 'exito info');
         Flash::success('La categoría '. $category->name. ' ha sido creada con exito');
         return redirect()->route('admin.categories.index');
     }
@@ -82,6 +82,7 @@ class CategoriesController extends Controller
         $category->save();
 
         Flash::info('La categoria '.$category->name.' ha sido actualizada')->important();
+$request->session()->flash('info', 'exito actializada');
         return redirect()->route('admin.categories.index');
     }
 

@@ -4,7 +4,11 @@
 
 @section('content')
 
-@include('flash-message')
+
+@if(session()->has('info')) 
+  <div class="alert alert-info"> 
+{{ session()->get('info') }} </div> 
+@endif
 
 	<table class="table table-striped">
 		<thead>
