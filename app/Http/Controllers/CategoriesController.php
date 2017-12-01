@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
-use Laracasts\Flash\Flash;
 use App\Category;
 
 class CategoriesController extends Controller
